@@ -1,21 +1,23 @@
 const { Sequelize } = require('sequelize');
 
 // Create connection instance
-const sequelize = new Sequelize('database_name', 'postgres', 'Nimap@777', {
+const sequelize = new Sequelize('Employee', 'postgres', 'Ganesh', {
   host: 'localhost',           
   dialect: 'postgres',         
   logging: false                
 });
-// 5433 port 
-// PgNimap
-// 5432
-// Test connection
-sequelize.authenticate()
-  .then(() => {
+
+sequelize.authenticate().then(() => {
     console.log(' Connection has been established successfully.');
   })
+
+  
   .catch(err => {
     console.error(' Unable to connect to the database:', err);
   });
 
 module.exports = sequelize;
+// 5433 port 
+// PgNimap
+// 5432
+// Test connection
