@@ -6,17 +6,19 @@ const user = require('./src/user/user.router');
 const admin = require('./src/admin/admin.route');
 const User = require('./src/user/user.modal');
 const Admin = require('./src/admin/admin.modal');
+const profile = require('./src/profile/profile.route');
 // const sequelize = require('sequelize');
 const PORT = process.env.PORT || 3000;
 
 
 User.sync({force: true});
-Admin.sync({force: true});
+// Admin.sync({force: true});
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/user', user);
-// app.use('/admin', admin);
+app.use('/admin', admin);
+app.use('/profile', profile);
 const data ={
     name : "Sumit",
     age : 20,

@@ -22,4 +22,11 @@ tableName: 'admin',
 timestamps: false
 
 });
-module.exports = Admin;
+
+Admin.associate = (models) => {
+    Profile.belongsTo(models.User, {
+      foreignKey: 'id',
+      as: 'user',
+    });
+  };
+module.exports = Admin ;
